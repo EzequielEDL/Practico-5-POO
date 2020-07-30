@@ -1,0 +1,90 @@
+/*
+	COLORS - strong to weak
+	gray scale
+		rgb(39, 42, 56);
+		rgb(50, 54, 74);
+		rgb(57, 61, 82);
+	white
+		rgb(255, 255, 255);
+	green
+		rgb(79, 216, 42);
+*/
+
+#div1{
+	margin: auto;
+	width: 27%;
+	height: 100%;
+	background-color: rgb(39, 42, 56);
+	box-shadow: 0px 0px 40px black;
+}
+
+#h1{
+	margin: 30px;
+	padding-top: 100px;
+}
+
+.input{
+	margin: auto;
+	width: 100%;
+	background-color: rgb(50, 54, 74);
+	padding: 10px;
+	padding-left: 60px;
+	box-sizing: border-box;
+	border-style: solid;
+	border-color: rgb(57, 61, 82);
+	border-right-style: hidden;
+	border-left-style: hidden;
+}
+
+
+#input1{
+	background: url('/static/images/user.png') no-repeat left 30px center;
+	filter: opacity(0.5);
+	color: rgb(255, 255, 255);
+}
+
+#input2{
+	background: url('/static/images/password.png') no-repeat left 30px center;
+	filter: opacity(0.5);
+	color: rgb(79, 216, 42);
+}
+
+#input3{
+	border-style: solid;
+	border-color: rgb(79, 216, 42);
+	border-radius: 20px;
+	font-weight: bold;
+	color: #4fd82a;
+	padding: 10px;
+	padding-right: 50px;
+	padding-left: 50px;
+	background-color: rgb(39, 42, 56);
+	margin: 30px;
+}
+
+#input3:hover{
+	background-color: rgb(79, 216, 42);
+	color: rgb(50, 54, 74);
+}
+
+#p1{
+	margin: 30px;
+	padding-bottom: 30px;
+}
+
+#p2{
+	margin-left: 30px;
+	color: red;
+}
+
+#input1:focus{
+	outline: 0;
+}
+
+#input2:focus{
+	outline: 0;
+}
+
+#input3:focus{
+	outline: 0;
+}
