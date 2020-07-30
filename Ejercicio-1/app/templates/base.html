@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+	<div id="background">
+		<img src="/static/images/background.png" class="stretch" alt="" />
+	</div>
+	<head>
+		{% block title %}
+		{% endblock %}
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+		{% block style %}
+		{% endblock%}
+	</head>
+	<body>
+
+		{% block content %}
+		{% endblock %}
+
+	</body>
+</html>

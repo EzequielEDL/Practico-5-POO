@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Home</title>{% endblock %}
+
+{% block style %}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/user.css') }}">
+{% endblock %}
+
+{% block content %}
+
+	<div id="div1">
+		<div id="div2">
+			<b>Usuario - {{ user.type_user }} - DNI: {{ user.id }}</b>
+			<input name="key_user" type="hidden" value="{{ user.id }}"> 
+		</div>
+
+		<div id="div3">
+			{% if user.type_user == 'Mozo' %}
+				<a class="button" href="{{ url_for('order') }}">Crear pedido</a>
+				<a class="button" href="{{ url_for('list') }}">Listar pedidos</a>
+			{% else %}
+				<a class="button" href="{{ url_for('token') }}">Listar pedidos</a>
+			{% endif %}
+				<a class="button" href="{{ url_for('logout') }}">Salir</a>
+		</div>
+
+		<div id="div4">
+			{% block content2%}
+			{% endblock%}
+		</div>
+
+	</div>
+
+{% endblock %}
+

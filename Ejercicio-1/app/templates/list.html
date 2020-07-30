@@ -1,0 +1,40 @@
+{% extends 'home.html' %}
+
+{% block content2 %}
+	
+	<div id="div4">
+		<form id="form1" action="{{ request.path }}" method="POST">
+
+		{% if orders is not none  %}
+			<h1 id="h11">Elegir pedido</h1>			
+			<select name="option" class="listbox">
+				{% for order in orders %}
+					<option value="{{ order.num_order }}">{{ order }}</option>
+				{% endfor %}
+			</select>
+
+			<input id="input2" type="submit" value="Mostrar">
+			<p id="p2">{{ valid_fields }}</p>
+
+		<div>
+			<hr></hr>
+		
+			<h1 id="h11">Pedido {{ order_select.num_order }} - ${{ order_select.total_price }}</h1>
+			<label>Numero de Mesa: {{ order_select.table }}</label>
+			<br></br>
+			<label>DNI del Mozo: {{ order_select.dni_mozo }}</label>
+			<br></br>
+			<label for="item">Items</label>
+			<select name="token_option" class="listbox2" multiple size="10" disabled>
+				{% for item in order_select.item %}
+					<option>{{ item }}</option>
+				{% endfor %}
+			</select>
+			<hr></hr>
+		</div>
+		{% endif %}
+		</form>
+	</div>
+
+{% endblock %}
+	

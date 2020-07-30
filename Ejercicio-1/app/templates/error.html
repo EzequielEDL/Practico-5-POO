@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	
+	{% if error == 404 %}
+		<div id="box_error">
+			<p id="error_tit">404</p>
+			<p id="error_des">Page Not Found</p>
+			<a id="back" href="{{ url_for('login') }}">Inicio</a>
+		</div>
+	
+	{% else %}
+		<div id="box_error">
+			<p id="error_tit">401</p>
+			<p id="error_des">Unauthorized</p>
+			<a id="back" href="{{ url_for('login') }}">Inicio</a>
+		</div>
+
+	{% endif %}
+
+{% endblock %}
+

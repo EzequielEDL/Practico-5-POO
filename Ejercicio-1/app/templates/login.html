@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Home</title>{% endblock %}
+
+{% block style %}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+
+	<div id="div1">
+		<h1 id="h1">Entrar a tu Cuenta</h1>
+		<form action="{{ request.path }}" method="post">
+			<input name="id" id="input1" type="username" class="input" placeholder="Usuario">
+			<input name="password" id="input2" type="password" class="input" placeholder="Contraseña">
+			<p id="p2">{{ valid_fields }}</p>
+    		<input id="input3" type="submit" value="Entrar">
+		</form>
+    	<p id="p1">
+    		© Copyright 2020.
+    		All rights reserved. Powered by Esequiel Delgado
+    	</p>
+	</div>
+
+{% endblock %}
