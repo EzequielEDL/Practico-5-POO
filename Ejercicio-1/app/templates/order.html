@@ -22,22 +22,19 @@
 			<label for="table">Numero de Mesa</label>
 			<input id="input1" class="input" name="table" type="number" min="1" max="999">
 			<br></br>
-			<div style="background-color: yellow;">
-				<div class="box1">
-					<label for="item">Items</label>
-					<select name="item_option" class="listbox2" multiple size="8" disabled>
-					{% for item in items %}
-						<option value="{{ item.num_item }}">{{ item }}</option>
-					{% endfor %}
-					</select>
-				</div>
-
-				<div class="box1">
-					<label for="remark">Observacion</label><br></br>
-					<textarea class="input" id="textarea1" name="remark" cols="35" rows="6"></textarea>
-				</div>
+			<div class="box1">
+				<label for="item">Items</label>
+				<select name="item_option" class="listbox2" multiple size="8" disabled>
+				{% for item in items %}
+					<option value="{{ item.num_item }}">{{ item }}</option>
+				{% endfor %}
+				</select>
 			</div>
 
+			<div class="box1">
+				<label for="remark">Observacion</label><br></br>
+				<textarea class="input" id="textarea1" name="remark" cols="35" rows="6"></textarea>
+			</div>
 	        <input id="input2" name="submit_button" type="submit" value="Crear pedido">
 		</form>
 	</div>
