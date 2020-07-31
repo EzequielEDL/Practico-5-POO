@@ -6,7 +6,7 @@
 		<form action="{{ request.path }}" method="POST">
 
 			{% if products is not none  %}
-				<h1 id="h11">Elegir pedido</h1>
+				<h1 id="h11">Elegir producto</h1>
 				<select name="add_item" class="listbox">
 					{% for product in products %}
 						<option value="{{ product.num_product }}">{{ product }}</option>
@@ -17,23 +17,25 @@
 				<p id="p2">{{ valid_fields }}</p>
 
 			{% endif %}
-
-			<h1 id="h11">Pedido</h1>
+			<hr></hr>
+			<h1 id="h11">Nuevo pedido</h1>
 			<label for="table">Numero de Mesa</label>
 			<input id="input1" class="input" name="table" type="number" min="1" max="999">
 			<br></br>
-			<div class="box1">
-				<label for="item">Items</label>
-				<select name="item_option" class="listbox2" multiple size="8" disabled>
-				{% for item in items %}
-					<option value="{{ item.num_item }}">{{ item }}</option>
-				{% endfor %}
-				</select>
-			</div>
+			<div style="background-color: yellow;">
+				<div class="box1">
+					<label for="item">Items</label>
+					<select name="item_option" class="listbox2" multiple size="8" disabled>
+					{% for item in items %}
+						<option value="{{ item.num_item }}">{{ item }}</option>
+					{% endfor %}
+					</select>
+				</div>
 
-			<div class="box1">
-				<label for="remark">Observacion</label><br></br>
-				<textarea class="input" id="textarea1" name="remark" cols="35" rows="6"></textarea>
+				<div class="box1">
+					<label for="remark">Observacion</label><br></br>
+					<textarea class="input" id="textarea1" name="remark" cols="35" rows="6"></textarea>
+				</div>
 			</div>
 
 	        <input id="input2" name="submit_button" type="submit" value="Crear pedido">

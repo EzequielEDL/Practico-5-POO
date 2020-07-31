@@ -130,9 +130,12 @@ def order():
 
 				else:
 					num_order = Order.query.all()[-1].num_order + 1
+					for i in item_list:
+						total_price += i.unit_price
+
 					new_order = Order(
 						date = datetime.datetime.now(),
-						total_price = 0,
+						total_price = total_price,
 						paid = 0,
 						remark = request.form['remark'],
 						dni_mozo = current_user.id,

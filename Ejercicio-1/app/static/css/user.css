@@ -76,10 +76,10 @@ form{
 }
 
 .box1{
-	background-color: white;
-	padding: 10px 10px;
+	padding-right: 1%;
+	padding-bottom: 15px;
 	height: 200px;
-	width: 50%;
+	width: 48%;
 	float: left;
 }
 
