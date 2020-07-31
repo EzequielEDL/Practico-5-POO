@@ -86,6 +86,8 @@ def logout():
 	logout_user()
 	return redirect(url_for('login'))
 
+item_list = []
+
 @app.route('/waiter/order', methods = ['GET','POST'])
 @login_required
 def order():
@@ -93,17 +95,13 @@ def order():
 		return render_template('error.html', error = 401)
 
 	else:
-		item_list = []
-		total_price = 0
-		print(item_list)
-
 		if request.method == 'POST':
 			if request.form['submit_button'] == 'Agregar Item':
 				print('----------------ADD ITEM BUTTON')
 
-				product = Product.query.filter_by(num_product = request.form['add_item']).first()
+				product = Product.query.filter_by(
+					num_product = request.form['add_item']).first()
 
-				total_price += product.unit_price
 				item_list.append(Item(
 					num_product = product.num_product,
 					price = product.unit_price,
@@ -118,7 +116,7 @@ def order():
 					)
 
 			elif request.form['submit_button'] == 'Crear pedido':
-				print('----------------CREAR ORDER BUTTON')
+				print('----------------CREATE ORDER BUTTON')
 
 				if  not request.form['table'] or item_list is None:
 					return render_template('order.html',
@@ -130,8 +128,9 @@ def order():
 
 				else:
 					num_order = Order.query.all()[-1].num_order + 1
+					total_price = 0
 					for i in item_list:
-						total_price += i.unit_price
+						total_price += i.price
 
 					new_order = Order(
 						date = datetime.datetime.now(),
@@ -142,9 +141,9 @@ def order():
 						table = request.form['table']
 						)
 
-					for item in item_list:
-						item.num_order = num_order
-						db.session.add(item)
+					for i in item_list:
+						i.num_order = num_order
+						db.session.add(i)
 					
 					db.session.add(new_order)
 					db.session.commit()
@@ -216,7 +215,8 @@ def token():
 					)
 
 			elif request.form['submit_button'] == 'Listo':
-				item_select = Item.query.filter_by(num_item = request.form['token_option']).first()
+				item_select = Item.query.filter_by(
+					num_item = request.form['token_option']).first()
 				item_select.state = 'Listo'
 				db.session.commit()
 				return render_template('token.html',
